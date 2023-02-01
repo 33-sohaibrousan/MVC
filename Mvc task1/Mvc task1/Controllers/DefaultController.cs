@@ -4,10 +4,13 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Mvc_task1.Controllers
 {
@@ -16,11 +19,14 @@ namespace Mvc_task1.Controllers
         // GET: Default
       
        
-            public string Indexx()
+            public ActionResult Indexx()
             {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("<h1>"+"click here to download image"+"</h1>");
+            sb.Append("<a href = '/homewho.png' download > <img src='/homewho.png'> </a>\r\n ");
+            return Content(sb.ToString());
 
-                return "<a href = '/homewho.png' download > <img src='/homewho.png'> </a>\r\n        ";
-            }
+        }
 
         public ActionResult AboutUs()
         {
