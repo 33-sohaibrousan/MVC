@@ -16,7 +16,7 @@ namespace mvc_task2_2.Models
     public partial class Employee
     {
         public int ID { get; set; }
-        [Required(ErrorMessage = "Please enter name"), MaxLength(12)]
+        [Required(ErrorMessage = "Please enter name"),Range(1,12,ErrorMessage ="the name is long")]
         public string Firsrt_Name { get; set; }
         [Required(ErrorMessage = "Please enter name"), MaxLength(12)]
         public string LastName { get; set; }
@@ -27,7 +27,7 @@ namespace mvc_task2_2.Models
         [RegularExpression(@"^(0)?[7]{1}[8|9|7]{1}[0-9]{7}$", ErrorMessage = "Invalid Mobile")]
         public Nullable<int> Phone { get; set; }
         [Required]
-        [Range(18, 50, ErrorMessage = "Age 18 to 50 only")]
+        [Range(18, 50, ErrorMessage = "Age from 18 to 50 only")]
         public Nullable<int> Age { get; set; }
         [Required]       
         [MaxLength(10)]
