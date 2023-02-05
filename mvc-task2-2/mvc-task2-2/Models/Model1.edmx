@@ -17,6 +17,8 @@
           <Property Name="Age" Type="int" />
           <Property Name="Job_Title" Type="varchar" MaxLength="50" />
           <Property Name="Gender" Type="varchar" MaxLength="50" />
+          <Property Name="Image" Type="varchar" MaxLength="255" />
+          <Property Name="CV" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityContainer Name="MVCModelStoreContainer">
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
@@ -37,6 +39,8 @@
           <Property Name="Age" Type="Int32" />
           <Property Name="Job_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CV" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="MVCEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Employees" EntityType="Self.Employee" />
@@ -50,6 +54,8 @@
           <EntitySetMapping Name="Employees">
             <EntityTypeMapping TypeName="MVCModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="CV" ColumnName="CV" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Firsrt_Name" ColumnName="Firsrt_Name" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />

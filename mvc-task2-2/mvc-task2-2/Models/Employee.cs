@@ -16,7 +16,8 @@ namespace mvc_task2_2.Models
     public partial class Employee
     {
         public int ID { get; set; }
-        [Required(ErrorMessage = "Please enter name"),Range(1,12,ErrorMessage ="the name is long")]
+        [Required(ErrorMessage = "Please enter name"), MaxLength(12)]
+        [Display(Name = "First Name")]        //[Required(ErrorMessage = "Please enter name"),Range(1,12,ErrorMessage ="the name is long")]
         public string Firsrt_Name { get; set; }
         [Required(ErrorMessage = "Please enter name"), MaxLength(12)]
         public string LastName { get; set; }
@@ -34,5 +35,11 @@ namespace mvc_task2_2.Models
         public string Job_Title { get; set; }
         [Required]
         public string Gender { get; set; }
+        [Required]
+        public string Image { get; set; }
+        [Required]
+        public string CV { get; set; }
+
+
     }
 }

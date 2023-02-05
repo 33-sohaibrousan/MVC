@@ -12,6 +12,8 @@
     <Property Name="Age" Type="Int32" />
     <Property Name="Job_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CV" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityContainer Name="MVCEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Employees" EntityType="Self.Employee" />
