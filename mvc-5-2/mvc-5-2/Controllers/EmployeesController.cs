@@ -65,44 +65,7 @@ namespace mvc_5_2.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        //public ActionResult Create([Bind(Include = "ID,Firsrt_Name,LastName,E_mail,Phone,Age,Job_Title,Gender")] Employee employee,HttpPostedFileBase Image , HttpPostedFileBase CV)
-        //{
-
-        //    if (ModelState.IsValid)
-        //    {
-        //        // Check if a file was uploaded
-        //        //if (employee.Image != null && employee.Image.ContentLengt > 0)
-        //        //{
-        //        // Define the folder path to save the image
-        //        string folderPath = Server.MapPath("~/img/");
-
-        //        // Create the folder if it does not exist
-        //        if (!Directory.Exists(folderPath))
-        //        {
-        //            Directory.CreateDirectory(folderPath);
-        //        }
-
-        //        // Generate a unique file name to prevent overwrite
-        //        var fileName = Guid.NewGuid().ToString() + Path.GetExtension(employee.Image);
-
-        //        // Build the full path to the image
-        //        var fullPath = Path.Combine(folderPath, fileName);
-
-        //        // Save the image
-        //        object value = employee.Image.SaveAs(folderPath);
-
-        //        // Update the employee record with the file name
-        //        employee.Image = fileName;
-        //        //}
-
-        //        db.Employees.Add(employee);
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-
-        //    return View(employee);
-        //}
-
+       
 
         public ActionResult Create([Bind(Include = "ID,Firsrt_Name,LastName,E_mail,Phone,Age,Job_Title,Gender")] Employee employee, HttpPostedFileBase Image, HttpPostedFileBase CV)
         {
@@ -130,6 +93,32 @@ namespace mvc_5_2.Controllers
                     ModelState.AddModelError("", "Please upload an image.");
                     return View(employee);
                 }
+                //---------------------------------------------
+                if (CV != null)
+                {
+                    if (!CV.ContentType.ToLower().StartsWith("application/pdf"))
+                    {
+                        ModelState.AddModelError("", "File uploaded is not a PDF.");
+                        return View(employee);
+                    }
+
+                    string folderPath = Server.MapPath("~/Content/CV");
+                    if (!Directory.Exists(folderPath))
+                    {
+                        Directory.CreateDirectory(folderPath);
+                    }
+
+                    string fileName = Path.GetFileName(CV.FileName);
+                    string path = Path.Combine(folderPath, fileName);
+                    CV.SaveAs(path);
+                    employee.CV = "../Content/CV/" + fileName;
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Please upload a CV.");
+                    return View(employee);
+                }
+
 
                 db.Employees.Add(employee);
                 db.SaveChanges();
@@ -183,6 +172,31 @@ namespace mvc_5_2.Controllers
                 else
                 {
                     ModelState.AddModelError("", "Please upload an image.");
+                    return View(employee);
+                }
+
+                if (CV != null)
+                {
+                    if (!CV.ContentType.ToLower().StartsWith("application/pdf"))
+                    {
+                        ModelState.AddModelError("", "File uploaded is not a PDF.");
+                        return View(employee);
+                    }
+
+                    string folderPath = Server.MapPath("~/Content/CV");
+                    if (!Directory.Exists(folderPath))
+                    {
+                        Directory.CreateDirectory(folderPath);
+                    }
+
+                    string fileName = Path.GetFileName(CV.FileName);
+                    string path = Path.Combine(folderPath, fileName);
+                    CV.SaveAs(path);
+                    employee.CV = "../Content/CV/" + fileName;
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Please upload a CV.");
                     return View(employee);
                 }
 

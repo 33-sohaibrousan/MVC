@@ -11,16 +11,35 @@ namespace mvc_5_2.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Employee
     {
         public int ID { get; set; }
+        [Required(ErrorMessage = "Please enter name"), MaxLength(12)]
+        [Display(Name = "First Name")]
         public string Firsrt_Name { get; set; }
+        [Required(ErrorMessage = "Please enter name"), MaxLength(12)]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
+        [Required]
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "Email")]
+
         public string E_mail { get; set; }
+        [Required]
+        [RegularExpression(@"^(0)?[7]{1}[8|9|7]{1}[0-9]{7}$", ErrorMessage = "Invalid Mobile")]
         public Nullable<int> Phone { get; set; }
+        [Required]
+        [Range(18, 50, ErrorMessage = "Age from 18 to 50 only")]
         public Nullable<int> Age { get; set; }
+        [Required]
+        [MaxLength(10)]
+        [Display(Name = "Job Title")]
+
         public string Job_Title { get; set; }
+        [Required]
+
         public string Gender { get; set; }
         public string Image { get; set; }
         public string CV { get; set; }

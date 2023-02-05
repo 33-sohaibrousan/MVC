@@ -91,7 +91,8 @@
             @Html.LabelFor(model => model.CV, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @*@Html.TextBox("CV", "file", new { type = "file", @class = "form-control", accept = "application/pdf" })*@
-                <input accept="application/pdf" class="form-control" id="CV" name="CV" type="file" value="file">
+                @*<input accept="application/pdf" class="form-control" id="CV" name="CV" type="file" value="file">*@
+                <input type="file" name="CV" id="CV" />
 
                 @*@Html.EditorFor(model => model.CV, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.ValidationMessageFor(model => model.CV, "", new { @class = "text-danger" })
