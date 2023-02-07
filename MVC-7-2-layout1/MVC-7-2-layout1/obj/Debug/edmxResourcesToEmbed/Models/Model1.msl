@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MVCModelStoreContainer" CdmEntityContainer="MVCEntities">
+    <EntitySetMapping Name="devices">
+      <EntityTypeMapping TypeName="MVCModel.device">
+        <MappingFragment StoreEntitySet="devices">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="deviceName" ColumnName="deviceName" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="deviceImage" ColumnName="deviceImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

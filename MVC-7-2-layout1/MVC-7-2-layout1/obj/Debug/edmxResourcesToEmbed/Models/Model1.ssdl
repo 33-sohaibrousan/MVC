@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MVCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="devices">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="deviceName" Type="varchar" MaxLength="50" />
+    <Property Name="description" Type="varchar" MaxLength="255" />
+    <Property Name="deviceImage" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityContainer Name="MVCModelStoreContainer">
+    <EntitySet Name="devices" EntityType="Self.devices" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
