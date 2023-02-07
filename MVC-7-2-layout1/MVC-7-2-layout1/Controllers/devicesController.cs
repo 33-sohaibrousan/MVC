@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -52,28 +53,28 @@ namespace MVC_7_2_layout1.Controllers
         {
             if (ModelState.IsValid)
             {
-                //if (Image != null)
-                //{
-                //    if (!Image.ContentType.ToLower().StartsWith("image/"))
-                //    {
-                //        ModelState.AddModelError("", "file uploaded is not an image");
-                //        return View(device);
-                //    }
-                //    string folderPath = Server.MapPath("~/Content/Images");
-                //    if (!Directory.Exists(folderPath))
-                //    {
-                //        Directory.CreateDirectory(folderPath);
-                //    }
-                //    string fileName = Path.GetFileName(Image.FileName);
-                //    string path = Path.Combine(folderPath, fileName);
-                //    Image.SaveAs(path);
-                //    device.deviceImage = "../Content/Images/" + fileName;
-                //}
-                //else
-                //{
-                //    ModelState.AddModelError("", "Please upload an image.");
-                //    return View(device);
-                //}
+                if (deviceImage != null)
+                {
+                    if (!deviceImage.ContentType.ToLower().StartsWith("image/"))
+                    {
+                        ModelState.AddModelError("", "file uploaded is not an image");
+                        return View(device);
+                    }
+                    string folderPath = Server.MapPath("~/Content/Images");
+                    if (!Directory.Exists(folderPath))
+                    {
+                        Directory.CreateDirectory(folderPath);
+                    }
+                    string fileName = Path.GetFileName(deviceImage.FileName);
+                    string path = Path.Combine(folderPath, fileName);
+                    deviceImage.SaveAs(path);
+                    device.deviceImage = "../Content/Images/" + fileName;
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Please upload an image.");
+                    return View(device);
+                }
 
 
 
@@ -105,10 +106,32 @@ namespace MVC_7_2_layout1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,deviceName,description,deviceImage")] device device)
+        public ActionResult Edit([Bind(Include = "ID,deviceName,description,deviceImage")] device device, HttpPostedFileBase deviceImage)
         {
             if (ModelState.IsValid)
             {
+                if (deviceImage != null)
+                {
+                    if (!deviceImage.ContentType.ToLower().StartsWith("image/"))
+                    {
+                        ModelState.AddModelError("", "file uploaded is not an image");
+                        return View(device);
+                    }
+                    string folderPath = Server.MapPath("~/Content/Images");
+                    if (!Directory.Exists(folderPath))
+                    {
+                        Directory.CreateDirectory(folderPath);
+                    }
+                    string fileName = Path.GetFileName(deviceImage.FileName);
+                    string path = Path.Combine(folderPath, fileName);
+                    deviceImage.SaveAs(path);
+                    device.deviceImage = "../Content/Images/" + fileName;
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Please upload an image.");
+                    return View(device);
+                }
                 db.Entry(device).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

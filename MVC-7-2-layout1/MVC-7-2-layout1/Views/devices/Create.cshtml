@@ -7,7 +7,7 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "devices", FormMethod.Post, new { enctype = "multipart/form-data" })) 
 {
     @Html.AntiForgeryToken()
     
@@ -34,7 +34,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.deviceImage, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            <input accept="image/*" class="form-control" id="Image" name="Image" type="file">
+            <input accept="image/*" class="form-control" id="deviceImage" name="deviceImage" type="file">
             @Html.ValidationMessageFor(model => model.deviceImage, "", new { @class = "text-danger" })
         </div>
     </div>
