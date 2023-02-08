@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7839fef852804c80b7b7b9cf7e510a2b" Name="Diagram1">
+        <EntityTypeShape EntityType="MVCModel.C__MigrationHistory" Width="1.5" PointX="5.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVCModel.AspNetRole" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVCModel.AspNetUserClaim" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVCModel.AspNetUserLogin" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVCModel.AspNetUserRole" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVCModel.AspNetUser" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVCModel.Category" Width="1.5" PointX="5.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVCModel.device" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVCModel.Employee" Width="1.5" PointX="8.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVCModel.Order" Width="1.5" PointX="11" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVCModel.Product" Width="1.5" PointX="8" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVCModel.sysdiagram" Width="1.5" PointX="2.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVCModel.info" Width="1.5" PointX="4.75" PointY="10.5" IsExpanded="true" />
+        <AssociationConnector Association="MVCModel.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" ManuallyRouted="false" />
+        <AssociationConnector Association="MVCModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="MVCModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="MVCModel.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="MVCModel.FK__Products__Catego__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="MVCModel.FK_Orders_Employee" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
