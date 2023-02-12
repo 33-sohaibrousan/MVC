@@ -7,11 +7,11 @@ using System.Web.Mvc;
 
 namespace MVC_8_2_authrization.Controllers
 {
-    [Authorize]
 
     public class HomeController : Controller
     {
         private MVCEntities1 db = new MVCEntities1();
+        [Authorize]
 
         public ActionResult Index()
         {

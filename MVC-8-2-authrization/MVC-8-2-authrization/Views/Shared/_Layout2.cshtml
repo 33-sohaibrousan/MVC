@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Klinik - Clinic Website Template</title>
+    <title>@ViewBag.Title - My ASP.NET Application</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -79,16 +79,19 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 @*<a href="index.html" class="nav-item nav-link active">Home</a>
-        <a href="about.html" class="nav-item nav-link">About</a>
-        <a href="service.html" class="nav-item nav-link">Service</a>*@
-               
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { @class = "class=\"nav-item nav-link" })</li>
-                    <li>@Html.ActionLink("About", "About", "Home", new { @class = "class=\"nav-item nav-link" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { @class = "class=\"nav-item nav-link" })</li>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="service.html" class="nav-item nav-link">Service</a>*@
 
+                <li>@Html.ActionLink("Home", "Index", "Home", new { @class = "class=\"nav-item nav-link" })</li>
+                <li>@Html.ActionLink("About", "About", "Home", new { @class = "class=\"nav-item nav-link" })</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home", new { @class = "class=\"nav-item nav-link" })</li>
+                @if (User.Identity.IsAuthenticated)
+                {
                     <li>@Html.ActionLink("devices", "index", "devices", new { @class = "class=\"nav-item nav-link" })</li>
-                
-                
+
+                }
+
+
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">
@@ -187,6 +190,7 @@
 
     <!-- Template Javascript -->
     <script src="~/js/main.js"></script>
+    @RenderSection("scripts", required: false)
 </body>
 
 </html>
