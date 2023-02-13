@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MVCModelStoreContainer" CdmEntityContainer="MVCEntities">
+    <EntitySetMapping Name="Facilities">
+      <EntityTypeMapping TypeName="MVCModel.Facility">
+        <MappingFragment StoreEntitySet="Facilities">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Faculity" ColumnName="Faculity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Majoers">
+      <EntityTypeMapping TypeName="MVCModel.Majoer">
+        <MappingFragment StoreEntitySet="Majoers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Major" ColumnName="Major" />
+          <ScalarProperty Name="FaculityId" ColumnName="FaculityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

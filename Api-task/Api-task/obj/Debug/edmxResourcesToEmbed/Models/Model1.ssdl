@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MVCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Facilities">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Faculity" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Majoers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Major" Type="varchar" MaxLength="50" />
+    <Property Name="FaculityId" Type="int" />
+  </EntityType>
+  <Association Name="FK_Facilities_Facilities">
+    <End Role="Facilities" Type="Self.Facilities" Multiplicity="1" />
+    <End Role="Facilities1" Type="Self.Facilities" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Facilities">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Facilities1">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Majoers_Facilities">
+    <End Role="Facilities" Type="Self.Facilities" Multiplicity="0..1" />
+    <End Role="Majoers" Type="Self.Majoers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facilities">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Majoers">
+        <PropertyRef Name="FaculityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MVCModelStoreContainer">
+    <EntitySet Name="Facilities" EntityType="Self.Facilities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Majoers" EntityType="Self.Majoers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Facilities_Facilities" Association="Self.FK_Facilities_Facilities">
+      <End Role="Facilities" EntitySet="Facilities" />
+      <End Role="Facilities1" EntitySet="Facilities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Majoers_Facilities" Association="Self.FK_Majoers_Facilities">
+      <End Role="Facilities" EntitySet="Facilities" />
+      <End Role="Majoers" EntitySet="Majoers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
